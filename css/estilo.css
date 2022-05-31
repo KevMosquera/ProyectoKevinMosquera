@@ -1,0 +1,284 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lateef', cursive;
+    
+}
+
+
+header nav ul li a {
+    text-decoration: none;
+    color: brown;
+}
+
+input[type=checkbox]
+{
+        display: none;
+}
+
+label
+{
+    display: none;
+}
+
+h1 {
+    margin: 50px 0;
+    text-align: center;
+}
+
+/*main*/
+section {
+    margin: 50px;
+}
+
+section p {
+    line-height: 2rem;
+}
+
+
+/*footer*/
+
+footer {
+    border-top: 2px solid grey;
+    border-bottom: 2px solid gray;
+    height:  100px;
+    background-image: url(../img/granos.png);
+    background-size: 10%;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    grid-area: footer;
+}
+
+footer p {
+    text-align: center;
+}*
+
+/*--------------------------------------------------Clases-------------------------------------------------------------------*/
+
+.contenedor {
+    margin: auto;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr;
+    /*grid-template-rows: 1fr 1fr 1fr;*/
+    grid-template-areas: 
+     "header"
+     "main"
+     "footer";
+}
+
+.logo 
+{
+    width: 50px;
+    margin: 10px;
+}
+
+
+.header 
+{
+    width: 100%;
+    padding: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    grid-area: header;
+}
+
+.menu
+{
+    contain:  content;
+
+}
+
+.header .menu ul{
+    list-style-type: none;
+    display: flex;
+    margin: 0 auto;
+    
+}
+
+.header .menu a{
+    color: brown;
+    text-decoration: none;
+    padding: 20px;
+    display: inline-block;
+    text-align: center;
+    width: 130px;
+}
+.header .menu a:hover{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+.title {
+    color: rgb(96, 61, 8);
+    margin-bottom: 10px;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.seccionDos .title, .seccionDos p {
+    text-align: right;
+}
+
+/*Arreglar*/
+.recetas {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.recetasDiv
+{
+    margin: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+     "header"
+     "main"
+     "footer";
+
+}
+
+
+.producto {
+    background-color: rgb(23, 23, 30);
+    box-shadow: 4px 4px 10px rgb(236, 236, 230);
+    width: min-content;
+    border-radius: 20px;
+    padding: 10px;
+    color: white;
+
+    margin-right: auto;
+    margin-left: auto;  
+}
+
+.producto h3 {
+    font-weight: 300;
+}
+
+.producto img {
+    width: 200px;
+}
+
+
+/*productos*/
+.productospremium{
+    width: 500px;
+    height: 100px;
+    background-color: gray;
+}
+
+/*servicios*/
+.franquicias{
+    width: 500px;
+    height: 100px;
+    background-color: brown;
+}
+
+/*--------------------------------------------------------Clases---------------------------------------------------------*/
+
+
+@media screen and (max-width: 1200px) 
+{
+
+
+    .recetasDiv
+    {
+
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        
+    }
+
+    
+}
+
+@media screen and (max-width: 576px) 
+{
+    .contenedor{
+        
+        grid-template-columns: auto;
+        grid-template-rows: auto 2fr auto auto;
+        grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+    }
+
+    .header .menu {
+        grid-template-columns: auto;
+        
+    }
+
+    .menu {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    
+
+    .header .menu ul {
+      list-style-type: none;
+      display: block;
+      height: 0px;
+      overflow: hidden;
+      margin: 0 auto;
+      width: 100%;
+      contain: content;
+
+      animation: despawnMenu 3s;
+    }
+
+    
+    label
+    {
+        display: block;
+    }
+
+    .header .menu input:checked ~ ul {
+      
+      height: 300px;
+      
+
+      animation: spawnMenu 3s;
+    }
+
+}
+
+
+@keyframes despawnMenu
+{
+    0% {
+        height: 300px;
+    }
+
+    100%{
+        
+        height: 0px;
+    }
+}
+
+
+@keyframes spawnMenu
+{
+    0% {
+        height: 0px;
+    }
+
+    100%{
+        height: 300px;
+    }
+}
